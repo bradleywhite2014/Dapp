@@ -12,6 +12,9 @@ var styles = StyleSheet.create({
   listview: {
     flex: 1,
   },
+  flexColumnContainer: {
+    flexDirection: "column",
+  },
   li: {
     backgroundColor: '#fff',
     borderBottomColor: '#eee',
@@ -27,6 +30,22 @@ var styles = StyleSheet.create({
   liText: {
     color: '#333',
     fontSize: 16,
+  },
+  textBox:{
+    paddingLeft:16,
+    paddingTop:14,
+    paddingBottom: 16,
+    height: 60,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginLeft:16,
+    marginRight:16
+  },
+  text: {
+    fontSize: 20,
+    textAlign: 'left',
+    margin: 10,
   },
   navbar: {
     alignItems: 'center',
@@ -62,6 +81,7 @@ var styles = StyleSheet.create({
     paddingLeft: 16,
     paddingTop: 14,
     paddingBottom: 16,
+    marginTop:40
   },
 })
 
