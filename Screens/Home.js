@@ -42,6 +42,8 @@ class Home extends Component {
           />
 
             <ActionButton title="Login" onPress={this.doLogin.bind(this)}/>
+
+            <ActionButton title="Facebook Login" onPress={this.doFacebookLogin.bind(this)}/>
       </View>
     );
   }
@@ -62,6 +64,7 @@ class Home extends Component {
 
   doLogin(){
     var self = this;
+
       this.authRef.authWithPassword({
         email    : this.currentUser.text,
         password : this.currentPassword.text
@@ -73,6 +76,26 @@ class Home extends Component {
 
         self.navigator.replace({id: 'interestScreen', authData: authData});
       }
+    });
+
+//     var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
+// ref.authWithOAuthPopup("facebook", function(error, authData) { /* Your Code */ }, {
+//   scope: "email,user_likes"
+// });
+  }
+
+  doFacebookLogin(){
+    var self = this;
+    this.authRef.authWithOAuthRedirect("facebook", function(error, authData) { if (error) {
+      console.log("Login Failed!", error);
+    } else {
+      console.log("Authenticated successfully with payload:", authData);
+
+      self.navigator.replace({id: 'interestScreen', authData: authData});
+
+    } }, {
+
+      scope: "email,user_likes"
     });
   }
 
